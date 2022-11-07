@@ -1,0 +1,217 @@
+package com.technogeek.diceroller;
+
+import android.os.Bundle;
+import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.Random;
+
+public class MainActivity extends AppCompatActivity {
+    int pscore = 0;
+    int player = 0; //0:Computer, 1:Player
+    int winner_value = 0;
+    int winner_user = 0;
+    int turn = 0;
+    ImageView diceImage1;
+    ImageView diceImage2;
+    ImageView one;
+    ImageView two;
+    ImageView three;
+    ImageView four;
+    ImageView five;
+    ImageView six;
+    ImageView roll;
+    ImageView reset;
+    TextView cscore;
+    TextView uscore;
+    TextView winner;
+    Random random_1 = new Random();
+    Random random_2 = new Random();
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        diceImage1 = findViewById(R.id.dice1_image);
+
+        diceImage2 = findViewById(R.id.dice2_image);
+
+        one = findViewById(R.id.one);
+        two = findViewById(R.id.two);
+        three = findViewById(R.id.three);
+        four = findViewById(R.id.four);
+        five = findViewById(R.id.three);
+        six = findViewById(R.id.four);
+
+        roll = findViewById(R.id.rollButton);
+
+        reset = findViewById(R.id.resetButton);
+
+        cscore = findViewById(R.id.cscore);
+
+        uscore = findViewById(R.id.uscore);
+
+        winner = findViewById(R.id.winner);
+
+        roll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                displaynumbers();
+                rotateDice();
+                displayscore(pscore, player);
+                diaplaywinner(pscore, player);
+                swapplayer();
+            }
+        });
+        reset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                reset();
+            }
+        });
+    }
+
+    private void displayscore(int score, int user) {
+        if (user == 0) {
+            cscore.setText(Integer.toString(score % 6));
+        }
+        else if (user == 1) {
+            uscore.setText(Integer.toString(score % 6));
+        }
+        else {
+
+        }
+    }
+
+    private void diaplaywinner(int pscore, int player) {
+
+        if (turn == 0){
+            winner_value = pscore % 6;
+            winner_user = player;
+            turn = 1;
+        }
+        else if ((pscore % 6) > winner_value) {
+            if (player == 0) {
+                winner.setText("Computer Win");
+            } else if (player == 1) {
+                winner.setText("Player Win");
+            } else {
+                //winner.setText("Tie, Play Again");
+            }
+        }
+        else if((pscore % 6) < winner_value)
+        {
+            if (player == 0) {
+                winner.setText("Player Win");
+            } else if (player == 1) {
+                winner.setText("Computer Win");
+            } else {
+               // winner.setText("Tie, Play Again");
+            }
+        }
+        else if((pscore % 6) == winner_value){
+            winner.setText("Tie, Play Again");
+        }
+        else
+        {
+            //nothing to do
+        }
+    }
+    private void reset() {
+        displayscore(0, 0);
+        displayscore(0, 1);
+        player = 0;
+        winner.setText(" ");
+        winner_value = 0;
+        winner_user = 0;
+        turn = 0;
+    }
+
+    private void swapplayer() {
+        if (player == 0) {
+            //displayscore(pscore, player);
+            player = 1;
+        }
+        else {
+            //displayscore(pscore, player);
+            player = 0;
+
+        }
+    }
+
+    private void displaynumbers() {
+        one.setImageResource(R.drawable.one);
+        two.setImageResource(R.drawable.two);
+        three.setImageResource(R.drawable.three);
+        four.setImageResource(R.drawable.four);
+        five.setImageResource(R.drawable.five);
+        six.setImageResource(R.drawable.six);
+    }
+
+    private void rotateDice() {
+        int i = random_1.nextInt(5)+1;
+        int j = random_2.nextInt(5)+1;
+        pscore = i+j;
+        Animation anim = AnimationUtils.loadAnimation(this, R.anim.rotate);
+        diceImage1.startAnimation(anim);
+        diceImage2.startAnimation(anim);
+        switch (i){
+            case 1:
+                diceImage1.setImageResource(R.drawable.dice1);
+                //diceImage2.setImageResource(R.drawable.dice1);
+                break;
+            case 2:
+                diceImage1.setImageResource(R.drawable.dice2);
+                //diceImage2.setImageResource(R.drawable.dice2);
+                break;
+            case 3:
+                diceImage1.setImageResource(R.drawable.dice3);
+                //diceImage2.setImageResource(R.drawable.dice3);
+                break;
+            case 4:
+                diceImage1.setImageResource(R.drawable.dice4);
+                //diceImage2.setImageResource(R.drawable.dice4);
+                break;
+            case 5:
+                diceImage1.setImageResource(R.drawable.dice5);
+                //diceImage2.setImageResource(R.drawable.dice5);
+                break;
+            case 6:
+                diceImage1.setImageResource(R.drawable.dice6);
+                //diceImage2.setImageResource(R.drawable.dice6);
+                break;
+        }
+        switch (j) {
+            case 1:
+                //diceImage1.setImageResource(R.drawable.dice1);
+                diceImage2.setImageResource(R.drawable.dice1);
+                break;
+            case 2:
+                //diceImage1.setImageResource(R.drawable.dice2);
+                diceImage2.setImageResource(R.drawable.dice2);
+                break;
+            case 3:
+                //diceImage1.setImageResource(R.drawable.dice3);
+                diceImage2.setImageResource(R.drawable.dice3);
+                break;
+            case 4:
+                //diceImage1.setImageResource(R.drawable.dice4);
+                diceImage2.setImageResource(R.drawable.dice4);
+                break;
+            case 5:
+                //diceImage1.setImageResource(R.drawable.dice5);
+                diceImage2.setImageResource(R.drawable.dice5);
+                break;
+            case 6:
+                //diceImage1.setImageResource(R.drawable.dice6);
+                diceImage2.setImageResource(R.drawable.dice6);
+                break;
+            }
+        }
+}

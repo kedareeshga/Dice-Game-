@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#A9A9A9"
+    >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:padding="4dp"
+        android:text="Computer's Score "
+        android:textAppearance="?android:textAppearanceLarge"
+        android:textColor="#c71585"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:padding="4dp"
+        android:text="Your Score  "
+        android:textAppearance="?android:textAppearanceLarge"
+        android:textColor="#c71585"
+        android:textStyle="bold" />
+
+
+    <ImageView
+        android:id="@+id/dice1_image"
+        android:layout_width="150dp"
+        android:layout_height="300dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="200dp"
+        android:layout_marginRight="20dp"
+        android:src="@drawable/dice1" />
+
+    <ImageView
+        android:id="@+id/dice2_image"
+        android:layout_width="150dp"
+        android:layout_height="300dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="38dp"
+        android:layout_marginTop="200dp"
+        android:src="@drawable/dice1" />
+
+    <ImageView
+        android:id="@+id/one"
+        android:layout_width="40dp"
+        android:layout_height="50dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="650dp"
+        android:src="@drawable/one" />
+
+    <ImageView
+        android:id="@+id/two"
+        android:layout_width="40dp"
+        android:layout_height="50dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="90dp"
+        android:layout_marginTop="650dp"
+        android:src="@drawable/two" />
+
+    <ImageView
+        android:id="@+id/three"
+        android:layout_width="40dp"
+        android:layout_height="50dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="160dp"
+        android:layout_marginTop="650dp"
+        android:src="@drawable/three" />
+
+    <ImageView
+        android:id="@+id/four"
+        android:layout_width="40dp"
+        android:layout_height="50dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="650dp"
+        android:layout_marginLeft="230dp"
+        android:src="@drawable/four" />
+
+    <ImageView
+        android:id="@+id/five"
+        android:layout_width="40dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="300dp"
+        android:layout_marginTop="650dp"
+        android:layout_marginRight="20dp"
+        android:src="@drawable/five" />
+
+    <ImageView
+        android:id="@+id/six"
+        android:layout_width="40dp"
+        android:layout_height="50dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="370dp"
+        android:layout_marginTop="650dp"
+        android:layout_marginRight="20dp"
+        android:src="@drawable/six" />
+
+    <TextView
+        android:id="@+id/uscore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="35dp"
+        android:background="#1bd19d"
+        android:padding="14dp"
+        android:text="TextView"
+        android:textColor="#000000"
+        android:textSize="30sp"
+        tools:text="0" />
+
+
+    <TextView
+        android:id="@+id/winner"
+        android:layout_width="274dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="150dp"
+        android:background="#1bd19d"
+        android:padding="20dp"
+        android:text="TextView"
+        android:textColor="#000000"
+        android:textSize="20dp"
+        tools:text="0" />
+
+    <TextView
+        android:id="@+id/cscore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="300dp"
+        android:layout_marginTop="35dp"
+        android:background="#1bd19d"
+        android:padding="14dp"
+        android:text="TextView"
+        android:textColor="#000000"
+        android:textSize="30sp"
+        tools:text="0" />
+
+    <Button
+        android:id="@+id/rollButton"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="245dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginBottom="96dp"
+        android:onClick="roll"
+        android:text="ROLL"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/resetButton"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="35dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginBottom="97dp"
+        android:onClick="reset"
+        android:text="RESET"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+</RelativeLayout>
